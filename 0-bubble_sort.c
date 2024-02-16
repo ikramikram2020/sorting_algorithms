@@ -7,42 +7,38 @@
  */
 void swap_ints(int *a, int *b)
 {
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+int tmp;
+tmp = *a;
+*a = *b;
+*b = tmp;
 }
+
 /**
- * bubble_sort - Sorts an array of integers in ascending order using Bubble sort.
- * @arr: Pointer to the array to be sorted.
- * @size: Size of the array.
+ * bubble_sort - Sort an array of integers in ascending order.
+ * @array: An array of integers to sort.
+ * @size: The size of the array.
  *
- * Description:
- *   Implements Bubble sort algorithm to sort the array in ascending order.
- *   Prints array after each swap for visualization. Terminates early if array is empty or sorted.
+ * Description: Prints the array after each swap.
  */
-void bubble_sort(int *arr, size_t arr_size)
+void bubble_sort(int *array, size_t size)
 {
-	size_t i, len = arr_size;
-	bool is_sorted = false;
-
-	if (arr == NULL || arr_size < 2)
-		return;
-
-	while (is_sorted == false)
-	{
-		is_sorted = true;
-		for (i = 0; i < len - 1; i++)
-		{
-			if (arr[i] > arr[i + 1])
-			{
-				swap_ints(arr + i, arr + i + 1);
-				print_array(arr, arr_size);
-				is_sorted = false;
-			}
-		}
-		len--;
-	}
+size_t i, len = size;
+bool swapped = false;
+if (array == NULL || size < 2)
+return;
+while (swapped == false)
+{
+swapped = true;
+for (i = 0; i < len - 1; i++)
+{
+if (array[i] > array[i + 1])
+{
+swap_ints(array + i, array + i + 1);
+print_array(array, size);
+swapped = false;
+}
+}
+len--;
+}
 }
 
